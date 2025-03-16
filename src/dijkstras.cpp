@@ -34,6 +34,14 @@ vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector
     for (int curr = destination; curr != -1; curr = previous[destination]){
         store.push_back(curr);
     }
-
     return store;
+}
+
+void print_path(const vector<int>& v, int total)
+{
+    for (int i = 0; i < v.size(); i++){
+        cout << v[i];
+    }
+    cout << endl;
+    cout << total;
 }
