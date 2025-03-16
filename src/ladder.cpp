@@ -23,7 +23,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         return d_counter == d;   
     } else{
         int d_counter2 = 0;
-        for (str1INDEX = 0, str2INDEX = 0; i < str1.length() && k < str2.length(); str1INDEX++, str2INDEX++){
+        for (int str1INDEX = 0, str2INDEX = 0; str1INDEX < str1.length() && str2INDEX < str2.length(); str1INDEX++, str2INDEX++){
             if (str1.length() > str2.length()){
                 str2INDEX -= 1;
             } else if (str2.length() > str1.length()){
