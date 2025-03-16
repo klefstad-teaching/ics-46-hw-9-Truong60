@@ -43,7 +43,8 @@ vector<int> extract_shortest_path(const vector<int>&, const vector<int>& previou
 void print_path(const vector<int>& v, int total)
 {
     for (size_t i = 0; i < v.size(); i++){
-        cout << v[i] << endl;
+        cout << v[i] << " ";
     }
+    cout < endl;
     cout << "TOTAL:" << total << endl;
 }
