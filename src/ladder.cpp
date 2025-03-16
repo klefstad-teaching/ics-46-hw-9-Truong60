@@ -30,7 +30,16 @@ bool is_adjacent(const string& word1, const string& word2)
     int d_diff = 1;
     return edit_distance_within(word1, word2, d_diff);
 }
-vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list){}
+
+vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list)
+{
+
+}
 void load_words(set<string> & word_list, const string& file_name){}
-void print_word_ladder(const vector<string>& ladder){}
+void print_word_ladder(const vector<string>& ladder)
+{
+    for (int i = 0; i < v.size(); i++){
+        cout << v[i] << " ";
+    }
+}
 void verify_word_ladder(){}
