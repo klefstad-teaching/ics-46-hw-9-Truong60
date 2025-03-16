@@ -37,6 +37,7 @@ vector<int> extract_shortest_path(const vector<int>&, const vector<int>& previou
     for (int curr = destination; curr != -1; curr = previous[curr]){
         store.push_back(curr);
     }
+    reverse(store.begin(), store.end());
     return store;
 }
 
