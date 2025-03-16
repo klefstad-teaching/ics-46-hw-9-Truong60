@@ -1,6 +1,8 @@
 #include "dijkstras.h"
 #include <algorithm>
 
+using namespace std;
+
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
 {
@@ -13,6 +15,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     minHeap.push({source, 0});
     while ( !minHeap.empty()){
         int u = minHeap.top().first;
+        minHeap.pop();
         if (visited[u]) continue;
         visited[u] = true;
         for (Edge edge: G[u]){
@@ -28,9 +31,12 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     return distances;
 }
 
-vector<int> extract_shortest_path(const vector<int>&, const vector<int>& previous, int destination)
+vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination)
 {   
     vector<int> store;
+    if (distances[destination] == -1){
+        return distances;
+    }
     for (int curr = destination; curr != -1; curr = previous[curr]){
         store.push_back(curr);
     }
@@ -42,6 +48,5 @@ void print_path(const vector<int>& v, int total)
     for (size_t i = 0; i < v.size(); i++){
         cout << v[i] << endl;
     }
-    cout << endl;
-    cout << total;
+    cout << "TOTAL:" << total << endl;
 }
