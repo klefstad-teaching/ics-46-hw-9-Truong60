@@ -10,23 +10,10 @@ void error(string word1, string word2, string msg)
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d)
 {   
-    int d_counter = 0;
-    if (str1.length() == str2.length()){
-        for (int i = 0; i < str1.length(); i++){
-            if (str1[i] != str2[i]){
-                d_counter++;
-            }
-            if (d_counter > d){
-                return false;
-            }
-        }
-        return d_counter == d;   
-    } else{
-        int str1INDEX = 0, str2INDEX = 0;
-        for (; str1INDEX < str1.length() && str2INDEX < str2.length(); str1INDEX++, str2INDEX++){
-            if (str1[str1INDEX] != str2[str2INDEX]){
-                d_counter++;
-            }
+    int d_counter = 0; 
+    for (int str1INDEX = 0, str2INDEX = 0; str1INDEX < str1.length() && str2INDEX < str2.length(); str1INDEX++, str2INDEX++){
+        if (str1[str1INDEX] != str2[str2INDEX]){
+            d_counter++;
             if (d_counter > d){
                 return false;
             }
@@ -36,9 +23,9 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
                 str1INDEX--;
             }
         }
-        if (str1INDEX < str1.length() || str2INDEX < str2.length()){
-            d_counter++;
-        }
+    }
+    if (str1.length() != str2.length()){
+        d_counter++;
     }
     return d_counter == d;
 }
