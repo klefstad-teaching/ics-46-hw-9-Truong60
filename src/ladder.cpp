@@ -32,7 +32,6 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         }
         return d_counter2;
     }
-    return false;
 }
 
 bool is_adjacent(const string& word1, const string& word2)
