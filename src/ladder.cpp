@@ -22,7 +22,8 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
         }
         return d_counter == d;   
     } else{
-        for (int str1INDEX = 0, str2INDEX = 0; str1INDEX < str1.length() && str2INDEX < str2.length(); str1INDEX++, str2INDEX++){
+        int str1INDEX = 0, str2INDEX = 0;
+        for (; str1INDEX < str1.length() && str2INDEX < str2.length(); str1INDEX++, str2INDEX++){
             if (str1[str1INDEX] != str2[str2INDEX]){
                 d_counter++;
             }
@@ -34,6 +35,9 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
             } else if (str2.length() > str1.length()){
                 str1INDEX--;
             }
+        }
+        if (str1INDEX < str1.length() || str2INDEX < str2.length()){
+            d_counter++;
         }
     }
     return d_counter == d;
