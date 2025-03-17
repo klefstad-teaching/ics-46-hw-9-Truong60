@@ -34,12 +34,8 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
             }
         }
     }
-    if (str2.length() < str1.length()){
-        d_counter += str1.length() - str1INDEX;
-    } else if (str1.length() < str2.length()){
-        d_counter += str2.length() - str2INDEX;
-    }
-    return d_counter <= d;
+    d_counter += abs((int)(str1.length() - str1INDEX)) + abs((int)(str2.length() - str2INDEX));
+    return d_counter == d;
 }
 
 bool is_adjacent(const string& word1, const string& word2)
