@@ -34,7 +34,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
             }
         }
     }
-    d_counter = str1.length() - str2.length();
+    d_counter = str2.length() - str1.length();
     return d_counter == d;
 }
 
