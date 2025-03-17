@@ -25,16 +25,20 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
                 return false;
             }
             if (str1.length() > str2.length()){
-                str2INDEX++;
-            } else if (str2.length() > str1.length()){
                 str1INDEX++;
+            } else if (str2.length() > str1.length()){
+                str2INDEX++;
             } else{
                 str1INDEX++;
                 str2INDEX++;
             }
         }
     }
-    d_counter += abs((int)(str1.length() - str1INDEX)) + abs((int)(str2.length() - str2INDEX));
+    if (str2.length() < str1.length()){
+        d_counter += str1.length() - str1INDEX;
+    } else if (str1.length() < str2.length()){
+        d_counter += str2.length() - str2INDEX;
+    }
     return d_counter == d;
 }
 
